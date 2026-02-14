@@ -5,6 +5,7 @@ import { useGetCallerUserProfile, useSaveCallerUserProfile } from './hooks/useQu
 import LoginButton from './components/auth/LoginButton';
 import ProfileSetupDialog from './components/auth/ProfileSetupDialog';
 import NotebookPage from './components/NotebookPage';
+import FollowerWall from './components/FollowerWall';
 import { Toaster } from '@/components/ui/sonner';
 
 export default function App() {
@@ -49,7 +50,12 @@ export default function App() {
   }, [isAuthenticated, queryClient]);
 
   return (
-    <div className="min-h-screen notebook-background">
+    <div className="min-h-screen notebook-background relative">
+      {/* Great Follower Wall - Background Layer */}
+      {isAuthenticated && !profileLoading && userProfile && (
+        <FollowerWall />
+      )}
+
       {/* Spiral binding on the left */}
       <div className="spiral-binding" />
 

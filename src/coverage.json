@@ -1,49 +1,30 @@
 {
   "kind": "coverage_report",
   "version": "1.0",
-  "generatedAt": "2026-02-14T21:37:15.510Z",
+  "generatedAt": "2026-02-14T22:04:33.121Z",
   "sources": {
     "buildRequest": true,
     "implementationPlan": true
   },
   "requirements": {
-    "total": 1,
-    "implemented": 1,
-    "items": [
-      {
-        "id": "REQ-11",
-        "summary": "Identify and fix the cause of the current build/deployment failure, then ensure the app can be built and deployed successfully without breaking existing functionality.",
-        "status": "implemented",
-        "plannedFiles": [
-          "frontend/src/hooks/useInternetIdentity.ts",
-          "frontend/src/hooks/useActor.ts",
-          "frontend/src/backend.d.ts",
-          "frontend/src/hooks/useQueries.ts",
-          "frontend/src/hooks/useDailyFollowers.ts",
-          "frontend/src/App.tsx",
-          "frontend/src/vite-env.d.ts"
-        ],
-        "matchedFiles": [
-          "frontend/src/backend.d.ts",
-          "frontend/src/hooks/useQueries.ts",
-          "frontend/src/hooks/useDailyFollowers.ts",
-          "frontend/src/App.tsx",
-          "frontend/src/vite-env.d.ts"
-        ]
-      }
-    ]
+    "total": 0,
+    "implemented": 0,
+    "items": []
   },
   "changedFiles": [
+    "backend/main.mo",
     "build-request.json",
-    "build-template/README.md",
     "feature_evidence.json",
     "frontend-file-summaries.txt",
     "frontend-implementation-plan.json",
     "frontend/src/App.tsx",
     "frontend/src/backend.d.ts",
+    "frontend/src/backend.ts",
+    "frontend/src/components/FollowerWall.tsx",
+    "frontend/src/declarations/backend.did.d.ts",
+    "frontend/src/declarations/backend.did.js",
     "frontend/src/hooks/useDailyFollowers.ts",
-    "frontend/src/hooks/useQueries.ts",
-    "frontend/src/vite-env.d.ts",
+    "frontend/src/index.css",
     "project_state.json",
     "scratch/component-selection.json",
     "spec.md",

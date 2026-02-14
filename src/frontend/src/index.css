@@ -140,6 +140,104 @@
         }
     }
     
+    /* Great Follower Wall */
+    .follower-wall {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        z-index: 1;
+        pointer-events: none;
+        overflow: hidden;
+    }
+    
+    .follower-name {
+        position: absolute;
+        font-family: 'Brush Script MT', 'Lucida Handwriting', cursive;
+        font-size: clamp(1rem, 2vw, 2rem);
+        color: oklch(var(--notebook-ink) / 0.08);
+        white-space: nowrap;
+        pointer-events: auto;
+        cursor: pointer;
+        transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+        user-select: none;
+        text-shadow: 0 1px 2px oklch(0 0 0 / 0.05);
+    }
+    
+    /* Glittery hover effect with bubble pop animation */
+    .follower-name:hover {
+        color: var(--hover-color);
+        transform: scale(1.5) rotate(0deg) !important;
+        z-index: 2;
+        text-shadow: 
+            0 0 10px var(--hover-color),
+            0 0 20px var(--hover-color),
+            0 0 30px var(--hover-color),
+            0 0 40px var(--hover-color),
+            0 2px 4px oklch(0 0 0 / 0.3);
+        animation: bubblePop 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+        filter: brightness(1.2) saturate(1.5);
+    }
+    
+    @keyframes bubblePop {
+        0% {
+            transform: scale(1) rotate(var(--rotation, 0deg));
+        }
+        30% {
+            transform: scale(1.8) rotate(0deg);
+        }
+        50% {
+            transform: scale(1.4) rotate(0deg);
+        }
+        70% {
+            transform: scale(1.6) rotate(0deg);
+        }
+        100% {
+            transform: scale(1.5) rotate(0deg);
+        }
+    }
+    
+    /* Add sparkle effect on hover */
+    .follower-name::before {
+        content: '';
+        position: absolute;
+        top: -5px;
+        left: -5px;
+        right: -5px;
+        bottom: -5px;
+        background: radial-gradient(
+            circle at 20% 30%,
+            var(--hover-color) 0%,
+            transparent 50%
+        ),
+        radial-gradient(
+            circle at 80% 70%,
+            var(--hover-color) 0%,
+            transparent 50%
+        );
+        opacity: 0;
+        transition: opacity 0.3s ease;
+        pointer-events: none;
+        filter: blur(8px);
+    }
+    
+    .follower-name:hover::before {
+        opacity: 0.6;
+        animation: sparkle 1s ease-in-out infinite;
+    }
+    
+    @keyframes sparkle {
+        0%, 100% {
+            opacity: 0.3;
+            transform: scale(0.8);
+        }
+        50% {
+            opacity: 0.8;
+            transform: scale(1.2);
+        }
+    }
+    
     /* Notebook card styling */
     .notebook-card {
         background: oklch(var(--card) / 0.95);

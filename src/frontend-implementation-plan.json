@@ -1,54 +1,6 @@
 {
   "kind": "implementation_plan",
   "version": "1.0",
-  "title": "Fix frontend build/deploy failure without breaking the notebook workflow",
-  "requirements": [
-    {
-      "id": "REQ-11",
-      "summary": "Fix the frontend build/deploy failure by resolving TypeScript/runtime incompatibilities in auth/actor initialization while preserving the existing Internet Identity + notebook load/edit/save workflow.",
-      "acceptanceCriteria": [
-        "A clean build succeeds for both frontend and backend (no TypeScript/Vite build errors; no Motoko compile errors).",
-        "A deploy succeeds (no deployment-time traps or canister install errors).",
-        "After deploy, the app loads and the existing notebook workflow still works end-to-end: user can log in with Internet Identity, select a date, load the saved follower list for that date, edit names, and save successfully.",
-        "No user-facing text introduced by the fix is non-English (all new/changed UI strings are in English)."
-      ],
-      "file_operations": [
-        {
-          "path": "frontend/src/hooks/useInternetIdentity.ts",
-          "operation": "modify",
-          "description": "Remove reliance on Node-style environment access (e.g., process.env) that can break Vite production builds, and source the Internet Identity provider URL from Vite-compatible configuration (e.g., import.meta.env and/or the existing loadConfig flow). Ensure login/logout behavior remains unchanged and no new UI strings are introduced."
-        },
-        {
-          "path": "frontend/src/hooks/useActor.ts",
-          "operation": "modify",
-          "description": "Fix TypeScript/build issues around actor initialization by aligning the actor type with the backend actor’s actual public surface (including any access-control initialization hook used by the Authorization system). Use the selected \"authorization\" component’s expected initialization behavior at a high level; verify the component's usage instructions before implementing."
-        },
-        {
-          "path": "frontend/src/backend.d.ts",
-          "operation": "modify",
-          "description": "Update generated/declared backend interface typings to match the frontend’s actual actor usage (e.g., include any access-control initialization function invoked during actor creation) and to ensure role values are typed consistently (no string-literal mismatches)."
-        },
-        {
-          "path": "frontend/src/hooks/useQueries.ts",
-          "operation": "modify",
-          "description": "Fix TypeScript typing issues and potential runtime inconsistencies by using the declared UserRole enum values consistently (e.g., compare to UserRole.guest and assign UserRole.user), while preserving the existing profile setup flow behavior."
-        },
-        {
-          "path": "frontend/src/hooks/useDailyFollowers.ts",
-          "operation": "modify",
-          "description": "Harden actor/identity-dependent queries and mutations to avoid build-time and deploy-time edge cases (e.g., ensure enabled conditions and cache keys remain stable and do not trigger calls when identity/actor are unavailable), without changing the notebook workflow."
-        },
-        {
-          "path": "frontend/src/App.tsx",
-          "operation": "modify",
-          "description": "Validate and adjust authentication/profile gating only as needed to prevent regressions after the build/deploy fix (e.g., ensure the app does not attempt to access protected data when unauthenticated, and that logout clears cached data as intended). Keep all user-facing text in English."
-        },
-        {
-          "path": "frontend/src/vite-env.d.ts",
-          "operation": "create",
-          "description": "Add Vite environment type declarations (import.meta.env) if missing in the project to prevent TypeScript build failures when using Vite-compatible environment variables."
-        }
-      ]
-    }
-  ]
+  "title": "Great Follower Wall background collage and per-name hover effects",
+  "requirements": []
 }

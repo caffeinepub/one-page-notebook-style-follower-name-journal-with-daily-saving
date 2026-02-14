@@ -1,6 +1,6 @@
 {
   "schemaVersion": "1.0.0",
-  "projectStateVersion": 7,
+  "projectStateVersion": 9,
   "summary": "Single-page website with a notebook-style background to enter and save followers' names on a daily basis.",
   "architectural_notes": [
     "Single-page web app UI with notebook-style background.",
@@ -11,7 +11,7 @@
     "Automated build/deploy failed when attempting to implement the 'Great Follower Wall' feature; needs retry or request breakdown.",
     "User requested a redeploy/retry after a deployment error (attempt to rerun build/deploy)."
   ],
-  "isFixRequest": true,
+  "isFixRequest": false,
   "existing_features": [
     {
       "id": "feature-create-a-single-page-ui-with-a-notebook-style-writing-area-where-the-user-can-enter-a-list-of-follower-names-for-a-specific-day-and-clearly-view-edit-the-list-before-saving",

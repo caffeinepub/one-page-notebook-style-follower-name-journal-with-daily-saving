@@ -1,36 +1,16 @@
 {
   "kind": "build_request",
-  "title": "Retry build/deploy by fixing the current deployment error",
-  "priority": "high",
-  "requirements": [
-    {
-      "id": "REQ-11",
-      "text": "Identify and fix the cause of the current build/deployment failure, then ensure the app can be built and deployed successfully without breaking existing functionality.",
-      "target": "both",
-      "source": {
-        "messageIds": [
-          "recent-messages-1"
-        ],
-        "quotes": [
-          "try again"
-        ]
-      },
-      "acceptanceCriteria": [
-        "A clean build succeeds for both frontend and backend (no TypeScript/Vite build errors; no Motoko compile errors).",
-        "A deploy succeeds (no deployment-time traps or canister install errors).",
-        "After deploy, the app loads and the existing notebook workflow still works end-to-end: user can log in with Internet Identity, select a date, load the saved follower list for that date, edit names, and save successfully.",
-        "No user-facing text introduced by the fix is non-English (all new/changed UI strings are in English)."
-      ]
-    }
-  ],
+  "title": "Great Follower Wall background collage and per-name hover effects",
+  "priority": "normal",
+  "requirements": [],
   "constraints": [
-    "Backend must remain a single Motoko actor in backend/main.mo; only add backend/migration.mo if an actual stable-state upgrade is required.",
-    "Do not modify files under frontend/src/components/ui or any other frontend immutable paths listed in SYSTEM_CONTEXT.",
-    "Do not introduce unsupported technologies (no external databases/services, no alternative auth providers, no WebSockets)."
+    "Do not create new requirements for functionality that already exists in the project’s existing_features list (Great Follower Wall collage + per-name hover effects are already implemented features).",
+    "Backend must remain a single Motoko actor in backend/main.mo; only create backend/migration.mo if an upgrade requires state migration.",
+    "Do not edit files under frontend/immutablePaths (frontend/src/hooks/useInternetIdentity.ts, frontend/src/hooks/useInternetIdentity.tsx, frontend/src/hooks/useActor.ts, frontend/src/main.tsx, frontend/src/components/ui)."
   ],
   "nonGoals": [
-    "Do not add new product features beyond what is necessary to resolve the deployment failure and complete a successful deploy.",
-    "Do not redesign the UI/visual theme unless required to fix the build/deploy error."
+    "Adding new animation behaviors beyond the existing per-name hover effect (e.g., animations on name appearance) unless explicitly requested.",
+    "Adding new backend endpoints or changing persistence schema for follower data unless needed to fulfill a new user request."
   ],
   "imageRequirements": {
     "required": [],
