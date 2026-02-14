@@ -1,0 +1,123 @@
+{
+  "schemaVersion": "1.0.0",
+  "projectStateVersion": 7,
+  "summary": "Single-page website with a notebook-style background to enter and save followers' names on a daily basis.",
+  "architectural_notes": [
+    "Single-page web app UI with notebook-style background.",
+    "Support daily persistence of entered follower names (store entries by date).",
+    "Support an aggregated view that loads and displays all follower names across all saved days (not just the currently selected day)."
+  ],
+  "known_issues": [
+    "Automated build/deploy failed when attempting to implement the 'Great Follower Wall' feature; needs retry or request breakdown.",
+    "User requested a redeploy/retry after a deployment error (attempt to rerun build/deploy)."
+  ],
+  "isFixRequest": true,
+  "existing_features": [
+    {
+      "id": "feature-create-a-single-page-ui-with-a-notebook-style-writing-area-where-the-user-can-enter-a-list-of-follower-names-for-a-specific-day-and-clearly-view-edit-the-list-before-saving",
+      "title": "Create a single-page UI with a notebook-style writing area where the user can enter a list of follower names for a specific day and clearly view/edit the list before saving.",
+      "reqIds": [
+        "REQ-1"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-support-selecting-a-day-default-to-today-and-saving-loading-that-day-s-follower-name-list-so-the-user-can-maintain-entries-on-a-daily-basis",
+      "title": "Support selecting a day (default to today) and saving/loading that day’s follower-name list so the user can maintain entries on a daily basis.",
+      "reqIds": [
+        "REQ-2"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-integrate-the-frontend-with-the-backend-using-react-query-to-load-save-the-daily-follower-name-list-including-loading-and-error-states-and-optimistic-disabled-save-ux-to-prevent-duplicate-saves",
+      "title": "Integrate the frontend with the backend using React Query to load/save the daily follower-name list, including loading and error states, and optimistic/disabled-save UX to prevent duplicate saves.",
+      "reqIds": [
+        "REQ-4"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-add-a-coherent-distinct-visual-theme-for-the-notebook-page-colors-typography-spacing-and-apply-it-consistently-across-the-single-page-app-without-using-a-blue-purple-dominant-palette",
+      "title": "Add a coherent, distinct visual theme for the notebook page (colors, typography, spacing) and apply it consistently across the single-page app without using a blue/purple-dominant palette.",
+      "reqIds": [
+        "REQ-5"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-add-generated-static-image-assets-to-enhance-the-notebook-look-e-g-paper-texture-and-spiral-binding-and-render-them-from-frontend-public-assets-generated-no-backend-image-routing",
+      "title": "Add generated static image assets to enhance the notebook look (e.g., paper texture and spiral binding) and render them from frontend/public/assets/generated (no backend image routing).",
+      "reqIds": [
+        "REQ-6"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-create-a-react-query-hook-to-load-the-aggregated-follower-name-list-for-the-logged-in-user-using-the-new-backend-api-including-loading-and-error-handling-consistent-with-the-app-s-existing-patterns",
+      "title": "Create a React Query hook to load the aggregated follower-name list for the logged-in user using the new backend API, including loading and error handling consistent with the app’s existing patterns.",
+      "reqIds": [
+        "REQ-8"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-add-a-great-follower-wall-visual-layer-on-the-front-page-that-renders-the-aggregated-follower-names-as-a-stylish-background-collage-behind-the-existing-notebook-ui-and-ensure-it-updates-as-the-user-adds-saves-new-names-on-a-daily-basis",
+      "title": "Add a “Great Follower Wall” visual layer on the front page that renders the aggregated follower names as a stylish background collage behind the existing notebook UI, and ensure it updates as the user adds/saves new names on a daily basis.",
+      "reqIds": [
+        "REQ-9"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-implement-per-name-hover-styling-for-the-great-follower-wall-a-bubbly-popping-hover-animation-and-a-fancy-glittery-font-color-effect-on-the-hovered-name",
+      "title": "Implement per-name hover styling for the Great Follower Wall: a bubbly/popping hover animation and a fancy glittery font color effect on the hovered name.",
+      "reqIds": [
+        "REQ-10"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-identify-and-fix-the-cause-of-the-current-build-deployment-failure-then-ensure-the-app-can-be-built-and-deployed-successfully-without-breaking-existing-functionality",
+      "title": "Identify and fix the cause of the current build/deployment failure, then ensure the app can be built and deployed successfully without breaking existing functionality.",
+      "reqIds": [
+        "REQ-11"
+      ],
+      "version": 1
+    }
+  ],
+  "new_feature_requests": [
+    {
+      "id": "AR-1",
+      "summary": "Build a one-page website with a notebook background where the user can write followers' names and save them daily.",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-4",
+      "summary": "Implement backend persistence in the single Motoko actor to store follower-name entries per user per day, keyed by the caller’s Principal, with an API to get and upsert the list for a given date string (ISO date).",
+      "reqIds": [
+        "REQ-3"
+      ],
+      "status": "pending"
+    },
+    {
+      "id": "AR-5",
+      "summary": "Add a 'Great Follower Wall' on the front page that displays all followers’ names across all days as a stylish background collage, with a bubbly/popping hover animation per name and a glittery fancy font color effect on hover.",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-6",
+      "summary": "Add a backend API that returns all follower names for the authenticated caller aggregated across all saved days (the union of every saved daily list for that user), to power the Great Follower Wall.",
+      "reqIds": [
+        "REQ-7"
+      ],
+      "status": "pending"
+    }
+  ],
+  "gameProjectType": "none",
+  "projectName": "One-page notebook-style follower name journal with daily saving",
+  "clarification_mode": "instant",
+  "clarification_rounds": 0
+}

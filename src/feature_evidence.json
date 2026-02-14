@@ -1,0 +1,27 @@
+{
+  "kind": "feature_evidence_report",
+  "features": [
+    {
+      "featureId": "feature-identify-and-fix-the-cause-of-the-current-build-deployment-failure-then-ensure-the-app-can-be-built-and-deployed-successfully-without-breaking-existing-functionality",
+      "featureTitle": "Identify and fix the cause of the current build/deployment failure, then ensure the app can be built and deployed successfully without breaking existing functionality.",
+      "files": [
+        "frontend/src/App.tsx",
+        "frontend/src/hooks/useDailyFollowers.ts",
+        "frontend/src/hooks/useQueries.ts",
+        "frontend/src/vite-env.d.ts"
+      ],
+      "components": [
+        "authorization@4.0.0",
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-11"
+      ],
+      "confidence": "high"
+    }
+  ]
+}

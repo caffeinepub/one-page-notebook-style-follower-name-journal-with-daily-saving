@@ -1,0 +1,17 @@
+{
+  "frontend/src/App.tsx": "Main application component handling authentication flow, profile setup, and cache clearing on logout with proper identity state management.",
+  "frontend/src/components/NotebookPage.tsx": "Core notebook page component managing date selection, follower list state, save functionality, and coordinating between editor and status components.",
+  "frontend/src/components/FollowerListEditor.tsx": "Interactive follower list editor allowing users to add, edit inline, and remove follower names with numbered list display.",
+  "frontend/src/components/LoadSaveStatus.tsx": "Status display component showing loading skeletons, error alerts, and saving indicators for data operations.",
+  "frontend/src/components/auth/LoginButton.tsx": "Authentication button component handling Internet Identity login/logout with visual state feedback.",
+  "frontend/src/components/auth/ProfileSetupDialog.tsx": "Modal dialog for first-time user profile setup requiring name input before accessing the app, with close button hidden to ensure profile completion.",
+  "frontend/src/hooks/useQueries.ts": "React Query hooks for user profile operations using UserRole enum values consistently for type safety.",
+  "frontend/src/hooks/useDailyFollowers.ts": "React Query hooks for daily follower list operations with proper authentication checks and error handling.",
+  "frontend/src/utils/date.ts": "Date utility functions for ISO format conversion, today's date retrieval, and date normalization.",
+  "frontend/src/index.css": "Global styles implementing warm notebook theme with paper texture, ruled lines, spiral binding, and custom component styling using OKLCH colors.",
+  "frontend/tailwind.config.js": "Tailwind configuration extended with notebook-themed color palette, custom fonts (serif and handwriting), and design tokens.",
+  "frontend/src/vite-env.d.ts": "TypeScript declarations for Vite environment variables including import.meta.env interface.",
+  "frontend/src/hooks/useInternetIdentity.ts": "Internet Identity authentication provider hook that loads II URL from config instead of process.env, managing login/logout state and identity persistence.",
+  "frontend/src/hooks/useActor.ts": "Backend actor initialization hook that creates authenticated or anonymous actors and handles access control role assignment for new users.",
+  "frontend/src/backend.d.ts": "TypeScript interface definitions for backend canister including UserRole enum and all public methods."
+}
